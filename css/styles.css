@@ -14,6 +14,7 @@
   --white: #ffffff;
   --success: #31d0aa;
   --modal-background: #fcfcfc;
+  --modal-color: rgba(46, 47, 66, 0.4);
 
   --transition-dur-and-func: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -151,6 +152,22 @@ img {
   border: 1px solid transparent;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.12),
     0px 2px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.form-field {
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: border-color var(--transition-dur-and-func);
+}
+
+.form-field:focus {
+  border-color: var(--pressed-state, #4d5ae5);
+  outline-color: transparent;
+  outline-offset: 1px;
 }
 
 /* ============ /GENERAL PROPERTIES ============= */
@@ -500,6 +517,10 @@ img {
   margin-bottom: 16px;
 }
 
+.footer-social {
+  margin-right: 80px;
+}
+
 .footer-social-list {
   display: flex;
   gap: 16px;
@@ -521,6 +542,39 @@ img {
   background-color: var(--success);
 }
 
+.footer-form {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-field {
+  color: var(--white, #fff);
+
+  border: 1px solid var(--white, #fff);
+  background-color: transparent;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  width: 264px;
+  height: 40px;
+}
+
+.footer-field .footer-field::placeholder {
+  color: var(--white, #fff);
+}
+
+.footer-button {
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.footer-send-icon {
+  fill: var(--white);
+}
+
 /* ============ /FOOTER ============= */
 
 /* ============ MODAL WINDOW ============ */
@@ -531,7 +585,7 @@ img {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(46, 47, 66, 0.4);
+  background: var(--modal-color);
 
   transition: opacity var(--transition-dur-and-func),
     visibility var(--transition-dur-and-func);
@@ -545,6 +599,7 @@ img {
   box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.2),
     0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
   border-radius: 4px;
+  padding: 72px 24px 24px 24px;
 
   background-color: var(--modal-background);
   width: 408px;
@@ -596,6 +651,126 @@ img {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.modal-title {
+  color: var(--dark, #2e2f42);
+  text-align: center;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+
+  margin-bottom: 16px;
+}
+
+.modal-form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+}
+
+.modal-form-label-text {
+  color: var(--lightslate, #8e8f99);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.modal-form-field-wrapper {
+  position: relative;
+  display: block;
+}
+
+.modal-form-field {
+  width: 100%;
+  height: 40px;
+  border: 1px solid var(--modal-color);
+  padding-left: 38px;
+  color: var(--dark);
+}
+
+.modal-form-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 16px;
+  fill: var(--dark);
+  transition: fill var(--transition-dur-and-func);
+}
+
+.modal-form-field:focus + .modal-form-icon {
+  fill: var(--pressed-state);
+}
+
+.modal-form-textarea {
+  width: 100%;
+  height: 120px;
+  resize: none;
+  border: 1px solid var(--modal-color);
+  color: var(--dark);
+}
+
+.modal-form-textarea::placeholder {
+  color: var(--modal-color);
+}
+
+.checkbox-label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.checkbox-label .modal-form-label-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0;
+}
+
+.modal-form-checkbox {
+  appearance: none;
+  position: absolute;
+}
+
+.custom-checkbox {
+  fill: transparent;
+  border: 1px solid var(--modal-color);
+  border-radius: 2px;
+  padding: 4px 3px;
+  cursor: pointer;
+  transition: color var(--transition-dur-and-func),
+    background-color var(--transition-dur-and-func),
+    border-color var(--transition-dur-and-func);
+}
+
+.modal-form-checkbox:checked + .custom-checkbox {
+  fill: var(--white);
+  background-color: var(--pressed-state, #404bbf);
+  border-color: transparent;
+}
+
+.modal-form-checkbox:focus + .custom-checkbox {
+  border-color: var(--pressed-state);
+}
+
+.checkbox-link {
+  color: var(--primary-brand);
+  transition: color var(--transition-dur-and-func);
+}
+
+.checkbox-link:hover,
+.checkbox-link:focus {
+  color: var(--pressed-state);
+}
+
+.modal-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 169px;
 }
 
 /* ============ /MODAL WINDOW ============ */
