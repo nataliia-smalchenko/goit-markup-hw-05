@@ -156,7 +156,7 @@ img {
 
 .form-field {
   font-size: 12px;
-  line-height: 2;
+  line-height: 1.5;
   letter-spacing: 0.04em;
 
   padding: 8px 16px;
@@ -559,7 +559,7 @@ img {
   height: 40px;
 }
 
-.footer-field .footer-field::placeholder {
+.footer-field::placeholder {
   color: var(--white, #fff);
 }
 
@@ -568,11 +568,12 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  min-width: 165px;
 }
 
 .footer-send-icon {
   fill: var(--white);
+  margin-left: 16px;
 }
 
 /* ============ /FOOTER ============= */
@@ -663,29 +664,29 @@ img {
   margin-bottom: 16px;
 }
 
-.modal-form-label {
-  display: block;
+.modal-form-field-wrapper {
   margin-bottom: 8px;
+}
+
+.modal-form-input-wrapper {
+  position: relative;
+}
+
+.modal-form-label {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
-}
-
-.modal-form-label-text {
   color: var(--lightslate, #8e8f99);
   display: block;
   margin-bottom: 4px;
-}
-
-.modal-form-field-wrapper {
-  position: relative;
-  display: block;
 }
 
 .modal-form-field {
   width: 100%;
   height: 40px;
   border: 1px solid var(--modal-color);
+  background-color: transparent;
+  outline: transparent;
   padding-left: 38px;
   color: var(--dark);
 }
@@ -709,6 +710,7 @@ img {
   resize: none;
   border: 1px solid var(--modal-color);
   color: var(--dark);
+  outline: transparent;
 }
 
 .modal-form-textarea::placeholder {
@@ -716,18 +718,13 @@ img {
 }
 
 .checkbox-label {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
   margin-bottom: 24px;
 }
 
-.checkbox-label .modal-form-label-text {
+.modal-form-checkbox-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin-bottom: 0;
 }
 
 .modal-form-checkbox {
@@ -736,23 +733,29 @@ img {
 }
 
 .custom-checkbox {
-  fill: transparent;
+  width: 16px;
+  height: 16px;
   border: 1px solid var(--modal-color);
   border-radius: 2px;
-  padding: 4px 3px;
   cursor: pointer;
-  transition: color var(--transition-dur-and-func),
+  transition: fill var(--transition-dur-and-func),
     background-color var(--transition-dur-and-func),
-    border-color var(--transition-dur-and-func);
+    border var(--transition-dur-and-func);
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  fill: transparent;
+  margin-right: 8px;
 }
 
-.modal-form-checkbox:checked + .custom-checkbox {
+.modal-form-checkbox:checked + .checkbox-label > .custom-checkbox {
   fill: var(--white);
   background-color: var(--pressed-state, #404bbf);
-  border-color: transparent;
+  border: none;
 }
 
-.modal-form-checkbox:focus + .custom-checkbox {
+.modal-form-checkbox:focus + .checkbox-label > .custom-checkbox {
   border-color: var(--pressed-state);
 }
 
