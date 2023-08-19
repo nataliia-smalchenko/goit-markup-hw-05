@@ -774,7 +774,7 @@ img {
 }
 
 .modal-form-checkbox:checked + .checkbox-label > .custom-checkbox {
-  fill: var(--white);
+  fill: var(--light);
   background-color: var(--pressed-state);
   border: none;
 }
